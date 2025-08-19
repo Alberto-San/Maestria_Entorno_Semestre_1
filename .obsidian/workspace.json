@@ -1,0 +1,247 @@
+{
+  "main": {
+    "id": "db482dbedcf22744",
+    "type": "split",
+    "children": [
+      {
+        "id": "0adaf76e4d452688",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "73aad7151a7947cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Taller 2/Taller 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Taller 2"
+            }
+          },
+          {
+            "id": "009d54eab0b9e195",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Taller 2/Taller nueva junta directiva en empresa 20250730.pdf",
+                "page": 5,
+                "left": 104,
+                "top": 87,
+                "zoom": 1.7
+              },
+              "icon": "lucide-file-text",
+              "title": "Taller nueva junta directiva en empresa 20250730"
+            }
+          },
+          {
+            "id": "cc79d1ec17146469",
+            "type": "leaf",
+            "dimension": 50,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Taller 2/Análisis y Estrategias Maderas y Metales_.pdf",
+                "page": 7,
+                "left": -16,
+                "top": 642,
+                "zoom": 0.9632352941176471
+              },
+              "icon": "lucide-file-text",
+              "title": "Análisis y Estrategias Maderas y Metales_"
+            }
+          },
+          {
+            "id": "d8068253e279a5d0",
+            "type": "leaf",
+            "dimension": 33.333333333333336,
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "Taller 2/Análisis financiero de Maderas y Metales S.A._.pdf",
+                "page": 10,
+                "left": -16,
+                "top": 324,
+                "zoom": 0.9632352941176471
+              },
+              "icon": "lucide-file-text",
+              "title": "Análisis financiero de Maderas y Metales S.A._"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a94f95d2e05f76f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "acd1a360d2c7750b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "150073928b00f82a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "95075d52a2b374f9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "028d5ac8cfa41e81",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "e0bfa56373f36a9b",
+    "type": "split",
+    "children": [
+      {
+        "id": "5822b591a53cb837",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c68cbbaefede2afb",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Taller 2/Taller 2.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Taller 2"
+            }
+          },
+          {
+            "id": "d3997142420566e3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Taller 2/Balance.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Balance"
+            }
+          },
+          {
+            "id": "55d193b2ad727888",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "31d345cab4d7706b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Taller 2/Balance.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Balance"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false
+    }
+  },
+  "active": "73aad7151a7947cc",
+  "lastOpenFiles": [
+    "Taller 2/Análisis y Estrategias Maderas y Metales_2.pdf",
+    "Taller 2/Análisis financiero de Maderas y Metales S.A._.pdf",
+    "Taller 2/Taller nueva junta directiva en empresa 20250730.pdf",
+    "Taller 2/Análisis Estratégico Integral para el Taller de Planificación 2025.pdf",
+    "Taller 2/Taller 2.md",
+    "Taller 2/Análisis y Estrategias Maderas y Metales_.pdf",
+    "Taller 2/Análisis Financiero y Estratégico de la Empresa para Gerentes Operativos.pdf",
+    "Taller 2/No Favoritos/stg2.html",
+    "Taller 2/No Favoritos/stg.html",
+    "Taller 2/No Favoritos",
+    "Taller 2/Drawing 2025-08-18 11.22.04.excalidraw.md",
+    "Taller 2/Balance.md",
+    "Pasted image 20250818135341.png",
+    "Taller 2/stg.html",
+    "Taller 2/Images/Pasted image 20250813182316.png",
+    "Taller 2/Images/Pasted image 20250813182027.png",
+    "Taller 2/Images/Pasted Image 20250813190544_659.png",
+    "Taller 2/Excalidraw/Evolución Mercado de Gondolas.excalidraw.md",
+    "Taller 2/Excalidraw/Fabricacion de Gondolas.excalidraw.md"
+  ]
+}

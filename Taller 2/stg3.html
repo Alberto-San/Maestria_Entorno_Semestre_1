@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Financiero Empresarial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a3a6c, #2c5282);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .period-selector {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .period-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .period-btn.active {
+            background: rgba(255,255,255,0.3);
+            font-weight: 500;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .icon-blue {
+            background: rgba(66, 153, 225, 0.15);
+            color: #4299e1;
+        }
+        
+        .icon-green {
+            background: rgba(49, 151, 135, 0.15);
+            color: #319795;
+        }
+        
+        .icon-orange {
+            background: rgba(237, 137, 54, 0.15);
+            color: #ed8936;
+        }
+        
+        .icon-red {
+            background: rgba(229, 62, 62, 0.15);
+            color: #e53e3e;
+        }
+        
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .metric-comparison {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .positive {
+            color: #38a169;
+        }
+        
+        .negative {
+            color: #e53e3e;
+        }
+        
+        .chart-container {
+            height: 250px;
+            margin-top: 15px;
+        }
+        
+        .full-width-card {
+            grid-column: 1 / -1;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .kpi-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .kpi-title {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+        
+        .kpi-value {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .alert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .alert-card {
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .alert-red {
+            background: rgba(254, 215, 215, 0.7);
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .alert-yellow {
+            background: rgba(255, 249, 196, 0.7);
+            border-left: 4px solid #d69e2e;
+        }
+        
+        .alert-green {
+            background: rgba(209, 250, 229, 0.7);
+            border-left: 4px solid #38a169;
+        }
+        
+        .alert-icon {
+            font-size: 20px;
+        }
+        
+        .alert-content h4 {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .alert-content p {
+            font-size: 13px;
+            color: #4a5568;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background-color: #f7fafc;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        
+        tr:hover {
+            background-color: #f7fafc;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-red {
+            background-color: #e53e3e;
+        }
+        
+        .status-yellow {
+            background-color: #d69e2e;
+        }
+        
+        .status-green {
+            background-color: #38a169;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-chart-line"></i> Dashboard Financiero Empresarial</h1>
+                <div class="period-selector">
+                    <button class="period-btn">2020</button>
+                    <button class="period-btn">2021</button>
+                    <button class="period-btn active">2022</button>
+                </div>
+            </div>
+        </header>
+        
+        <div class="dashboard-grid">
+            <!-- KPI Cards -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Ingresos Operacionales</h3>
+                    <div class="card-icon icon-blue">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="metric-value">COP 46,202M</div>
+                <div class="metric-comparison positive">
+                    <i class="fas fa-arrow-up"></i> 29.2% vs 2021
+                </div>
+                <div class="chart-container">
+                    <canvas id="ingresosChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">EBITDA</h3>
+                    <div class="card-icon icon-green">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                </div>
+                <div class="metric-value">COP 237M</div>
+                <div class="metric-comparison positive">
+                    <i class="fas fa-arrow-up"></i> Recuperación desde -3,090M
+                </div>
+                <div class="chart-container">
+                    <canvas id="ebitdaChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Margen Neto</h3>
+                    <div class="card-icon icon-orange">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                </div>
+                <div class="metric-value">-5.3%</div>
+                <div class="metric-comparison negative">
+                    <i class="fas fa-arrow-down"></i> Mejora desde -11.1%
+                </div>
+                <div class="chart-container">
+                    <canvas id="margenChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Endeudamiento</h3>
+                    <div class="card-icon icon-red">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                </div>
+                <div class="metric-value">62.7%</div>
+                <div class="metric-comparison negative">
+                    <i class="fas fa-arrow-up"></i> 2.7 pts vs 2021
+                </div>
+                <div class="chart-container">
+                    <canvas id="endeudamientoChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Full Width Charts -->
+            <div class="card full-width-card">
+                <div class="card-header">
+                    <h3 class="card-title">Evolución Financiera (2019-2022)</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="evolucionChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card full-width-card">
+                <div class="card-header">
+                    <h3 class="card-title">Composición del Balance</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="balanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- KPIs Resumen -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Indicadores Clave de Desempeño</h3>
+            </div>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-title">ROI</div>
+                    <div class="kpi-value">0.3%</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">ROE</div>
+                    <div class="kpi-value">-9.3%</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">Ciclo de Caja</div>
+                    <div class="kpi-value">628 días</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">FCO</div>
+                    <div class="kpi-value">COP 3,720M</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">Cobertura Intereses</div>
+                    <div class="kpi-value">0.1x</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Alertas -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Alertas Financieras</h3>
+            </div>
+            <div class="alert-grid">
+                <div class="alert-card alert-red">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>EBITDA Crítico</h4>
+                        <p>Marginal recuperación desde valores negativos</p>
+                    </div>
+                </div>
+                <div class="alert-card alert-yellow">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>Alto Endeudamiento</h4>
+                        <p>62.7% del total de activos</p>
+                    </div>
+                </div>
+                <div class="alert-card alert-green">
+                    <div class="alert-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>Mejora en Liquidez</h4>
+                        <p>Ciclo de caja reducido a 628 días</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabla de Datos -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Resumen Financiero Anual</h3>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Indicador</th>
+                            <th>2019</th>
+                            <th>2020</th>
+                            <th>2021</th>
+                            <th>2022</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ingresos Operacionales (COP M)</td>
+                            <td>36,928</td>
+                            <td>33,229</td>
+                            <td>35,770</td>
+                            <td>46,202</td>
+                            <td><span class="status-indicator status-green"></span> Excelente</td>
+                        </tr>
+                        <tr>
+                            <td>EBITDA (COP M)</td>
+                            <td>4,576</td>
+                            <td>3,275</td>
+                            <td>-3,090</td>
+                            <td>237</td>
+                            <td><span class="status-indicator status-yellow"></span> Crítico</td>
+                        </tr>
+                        <tr>
+                            <td>Margen Neto (%)</td>
+                            <td>4.2%</td>
+                            <td>0.9%</td>
+                            <td>-11.1%</td>
+                            <td>-5.3%</td>
+                            <td><span class="status-indicator status-red"></span> Negativo</td>
+                        </tr>
+                        <tr>
+                            <td>Endeudamiento (%)</td>
+                            <td>55.8%</td>
+                            <td>51.4%</td>
+                            <td>60.0%</td>
+                            <td>62.7%</td>
+                            <td><span class="status-indicator status-red"></span> Alto</td>
+                        </tr>
+                        <tr>
+                            <td>Flujo Caja Operativo (COP M)</td>
+                            <td>-</td>
+                            <td>3,871</td>
+                            <td>20</td>
+                            <td>3,720</td>
+                            <td><span class="status-indicator status-green"></span> Bueno</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración global de Chart.js
+        Chart.defaults.color = '#4a5568';
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        
+        // Gráfico de Ingresos
+        const ingresosCtx = document.getElementById('ingresosChart').getContext('2d');
+        new Chart(ingresosCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022'],
+                datasets: [{
+                    label: 'Ingresos (COP Millones)',
+                    data: [36928, 33229, 35770, 46202],
+                    borderColor: '#4299e1',
+                    backgroundColor: 'rgba(66, 153, 225, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+        
+        // Gráfico de EBITDA
+        const ebitdaCtx = document.getElementById('ebitdaChart').getContext('2d');
+        new Chart(ebitdaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2019', '2020', '2021', '2022'],
+                datasets: [{
+                    label: 'EBITDA (COP Millones)',
+                    data: [4576, 3275, -3090, 237],
+                    backgroundColor: [
+                        '#38a169',
+                        '#38a169',
+                        '#e53e3e',
+                        '#ed8936'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+        
+        // Gráfico de Margen Neto
+        const margenCtx = document.getElementById('margenChart').getContext('2d');
+        new Chart(margenCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022'],
+                datasets: [{
+                    label: 'Margen Neto (%)',
+                    data: [4.2, 0.9, -11.1, -5.3],
+                    borderColor: '#ed8936',
+                    backgroundColor: 'rgba(237, 137, 54, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+        
+        // Gráfico de Endeudamiento
+        const endeudamientoCtx = document.getElementById('endeudamientoChart').getContext('2d');
+        new Chart(endeudamientoCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Pasivo', 'Patrimonio'],
+                datasets: [{
+                    data: [62.7, 37.3],
+                    backgroundColor: ['#e53e3e', '#38a169'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+        
+        // Gráfico de Evolución Financiera
+        const evolucionCtx = document.getElementById('evolucionChart').getContext('2d');
+        new Chart(evolucionCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022'],
+                datasets: [
+                    {
+                        label: 'Ingresos (COP M)',
+                        data: [36928, 33229, 35770, 46202],
+                        borderColor: '#4299e1',
+                        backgroundColor: 'rgba(66, 153, 225, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'EBITDA (COP M)',
+                        data: [4576, 3275, -3090, 237],
+                        borderColor: '#38a169',
+                        backgroundColor: 'rgba(56, 161, 105, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Resultado Neto (COP M)',
+                        data: [1551, 309, -3954, -2447],
+                        borderColor: '#ed8936',
+                        backgroundColor: 'rgba(237, 137, 54, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+        
+        // Gráfico de Composición del Balance 2022
+        const balanceCtx = document.getElementById('balanceChart').getContext('2d');
+        new Chart(balanceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Activo Corriente', 'Activo No Corriente', 'Pasivo Corriente', 'Pasivo No Corriente', 'Patrimonio'],
+                datasets: [{
+                    label: 'Valor (COP Millones)',
+                    data: [32708, 37877, 31385, 12858, 26342],
+                    backgroundColor: [
+                        'rgba(66, 153, 225, 0.7)',
+                        'rgba(49, 151, 135, 0.7)',
+                        'rgba(237, 137, 54, 0.7)',
+                        'rgba(229, 62, 62, 0.7)',
+                        'rgba(155, 107, 212, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Funcionalidad de botones de período
+        document.querySelectorAll('.period-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.period-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+```

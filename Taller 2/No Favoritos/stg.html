@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Financiero - Análisis Estratégico</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+--primary: #1a3a6c;
+--secondary: #2c5282;
+--success: #28a745;
+--warning: #ffc107;
+--danger: #dc3545;
+--info: #17a2b8;
+--light: #f8f9fa;
+--dark: #343a40;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #f5f7fa;
+color: #333;
+}
+
+.dashboard-header {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+color: white;
+padding: 1.5rem;
+border-radius: 10px;
+margin-bottom: 1.5rem;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card {
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+margin-bottom: 1.5rem;
+border: none;
+transition: transform 0.3s;
+}
+
+.card:hover {
+transform: translateY(-5px);
+}
+
+.card-header {
+background-color: white;
+border-bottom: 1px solid #eee;
+font-weight: 600;
+padding: 1rem 1.5rem;
+border-radius: 10px 10px 0 0 !important;
+}
+
+.health-indicator {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+display: inline-block;
+margin-right: 8px;
+}
+
+.health-red {
+background-color: var(--danger);
+}
+
+.health-yellow {
+background-color: var(--warning);
+}
+
+.health-green {
+background-color: var(--success);
+}
+
+.metric-card {
+text-align: center;
+padding: 1.5rem;
+}
+
+.metric-value {
+font-size: 2.2rem;
+font-weight: 700;
+margin: 0.5rem 0;
+}
+
+.metric-title {
+color: #6c757d;
+font-size: 1.1rem;
+}
+
+.trend-up {
+color: var(--success);
+font-weight: 600;
+}
+
+.trend-down {
+color: var(--danger);
+font-weight: 600;
+}
+
+.alert-card {
+border-left: 4px solid var(--danger);
+}
+
+.recommendation-card {
+border-left: 4px solid var(--info);
+}
+
+.phase-card {
+border-top: 4px solid;
+}
+
+.phase-1 {
+border-top-color: var(--danger);
+}
+
+.phase-2 {
+border-top-color: var(--warning);
+}
+
+.phase-3 {
+border-top-color: var(--success);
+}
+
+.critical-value {
+font-weight: 700;
+color: var(--danger);
+}
+
+.warning-value {
+font-weight: 600;
+color: var(--warning);
+}
+
+.healthy-value {
+font-weight: 600;
+color: var(--success);
+}
+
+.chart-container {
+position: relative;
+height: 250px;
+width: 100%;
+}
+
+.triangle-diagram {
+width: 100%;
+height: 300px;
+position: relative;
+margin: 2rem 0;
+}
+
+.triangle {
+width: 0;
+height: 0;
+border-left: 150px solid transparent;
+border-right: 150px solid transparent;
+border-bottom: 260px solid #e9ecef;
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.triangle-label {
+position: absolute;
+font-weight: bold;
+text-align: center;
+}
+
+.triangle-top {
+top: 10px;
+left: 50%;
+transform: translateX(-50%);
+}
+
+.triangle-left {
+bottom: 100px;
+left: 10%;
+}
+
+.triangle-right {
+bottom: 100px;
+right: 10%;
+}
+
+.triangle-status {
+position: absolute;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border: 2px solid white;
+}
+
+.dashboard-section {
+margin-bottom: 2rem;
+padding-bottom: 1.5rem;
+border-bottom: 1px solid #eee;
+}
+
+.section-title {
+color: var(--primary);
+font-weight: 600;
+margin-bottom: 1.2rem;
+display: flex;
+align-items: center;
+}
+
+.section-title i {
+margin-right: 10px;
+background: var(--primary);
+color: white;
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+margin-right: 12px;
+}
+
+.progress-container {
+margin: 1rem 0;
+}
+
+.progress-label {
+display: flex;
+justify-content: space-between;
+margin-bottom: 0.5rem;
+font-size: 0.9rem;
+}
+
+.timeline {
+position: relative;
+padding-left: 20px;
+margin: 2rem 0;
+}
+
+.timeline::before {
+content: '';
+position: absolute;
+left: 0;
+top: 10px;
+height: calc(100% - 20px);
+width: 2px;
+background: #ced4da;
+}
+
+.timeline-item {
+position: relative;
+margin-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+content: '';
+position: absolute;
+left: -20px;
+top: 5px;
+width: 12px;
+height: 12px;
+border-radius: 50%;
+border: 2px solid;
+}
+
+.timeline-item.phase-1::before {
+border-color: var(--danger);
+background: var(--danger);
+}
+
+.timeline-item.phase-2::before {
+border-color: var(--warning);
+background: var(--warning);
+}
+
+.timeline-item.phase-3::before {
+border-color: var(--success);
+background: var(--success);
+}
+
+.benchmark {
+font-size: 0.85rem;
+color: #6c757d;
+margin-top: 0.25rem;
+}
+
+.kpi-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1rem;
+margin-top: 1.5rem;
+}
+
+.kpi-card {
+border: 1px solid #e9ecef;
+border-radius: 8px;
+padding: 1rem;
+transition: all 0.3s;
+}
+
+.kpi-card:hover {
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+transform: translateY(-3px);
+}
+
+.kpi-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 0.75rem;
+}
+
+.kpi-title {
+font-weight: 600;
+color: #495057;
+font-size: 0.95rem;
+}
+
+.kpi-value {
+font-size: 1.5rem;
+font-weight: 700;
+text-align: center;
+margin: 0.5rem 0;
+}
+
+.kpi-trend {
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.85rem;
+margin-top: 0.5rem;
+}
+
+.dashboard-footer {
+text-align: center;
+padding: 1.5rem 0;
+color: #6c757d;
+font-size: 0.9rem;
+border-top: 1px solid #eee;
+margin-top: 2rem;
+}
+
+.scenario-card {
+border: 1px solid;
+border-radius: 8px;
+padding: 1.25rem;
+margin-bottom: 1rem;
+}
+
+.scenario-base {
+border-color: var(--warning);
+}
+
+.scenario-optimistic {
+border-color: var(--success);
+}
+
+.scenario-pessimistic {
+border-color: var(--danger);
+}
+
+.scenario-header {
+display: flex;
+align-items: center;
+margin-bottom: 0.75rem;
+}
+
+.scenario-icon {
+width: 36px;
+height: 36px;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 10px;
+color: white;
+font-size: 1.1rem;
+}
+
+.scenario-base .scenario-icon {
+background: var(--warning);
+}
+
+.scenario-optimistic .scenario-icon {
+background: var(--success);
+}
+
+.scenario-pessimistic .scenario-icon {
+background: var(--danger);
+}
+</style></head>
+<body>
+<div class="container-fluid p-4">
+<!-- Encabezado del Dashboard -->
+<div class="dashboard-header">
+<div class="row align-items-center">
+<div class="col-md-8">
+<h1>Dashboard Financiero Estratégico</h1>
+<p class="mb-0">Análisis de situación financiera y plan de acción para recuperación</p>
+</div>
+<div class="col-md-4 text-end">
+<div class="d-flex justify-content-end">
+<div class="text-center me-4">
+<div class="h4 mb-0">2022</div>
+<small>Último periodo</small>
+</div>
+<div class="text-center">
+<div class="h4 mb-0">70,585</div>
+<small>Activo Total (USD)</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Resumen Ejecutivo -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-bullseye"></i>Resumen Ejecutivo: Situación Crítica</h2>
+
+<div class="row">
+<div class="col-md-8">
+<div class="card">
+<div class="card-body">
+<p class="lead">
+<span class="critical-value">La empresa se encuentra en una situación financiera precaria</span>, a pesar de la recuperación en ingresos (29.2% en 2022). Los márgenes se han erosionado drásticamente, con un EBITDA marginal (0.5%) y pérdidas netas continuas (-5.3% en 2022).
+</p>
+<p>
+El <span class="critical-value">ciclo de caja extremadamente alto (628 días)</span> y el <span class="critical-value">endeudamiento insostenible (62.7% del pasivo)</span> representan riesgos sistémicos que requieren acción inmediata. La cobertura de intereses es crítica (0.1x), lo que significa que la empresa no genera suficiente EBITDA para cubrir sus obligaciones financieras.
+</p>
+<div class="alert alert-danger mt-3">
+<i class="fas fa-exclamation-triangle me-2"></i>
+<strong>Alerta crítica:</strong> Sin intervención, la empresa podría enfrentar problemas de liquidez en 12-18 meses. El FCL positivo en 2022 no es sostenible, ya que depende de aumentar pasivos comerciales y otros ajustes no recurrentes.
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card">
+<div class="card-header bg-white">
+Salud Financiera
+</div>
+<div class="card-body">
+<div class="kpi-grid">
+<div class="kpi-card">
+<div class="kpi-header">
+<span class="kpi-title">Margen EBITDA</span>
+<span class="badge bg-danger">Crítico</span>
+</div>
+<div class="kpi-value critical-value">0.5%</div>
+<div class="benchmark">Mínimo recomendado: 8%</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-header">
+<span class="kpi-title">Ciclo de Caja</span>
+<span class="badge bg-danger">Crítico</span>
+</div>
+<div class="kpi-value critical-value">628 días</div>
+<div class="benchmark">Máximo tolerable: 180 días</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-header">
+<span class="kpi-title">Cobertura Intereses</span>
+<span class="badge bg-danger">Crítico</span>
+</div>
+<div class="kpi-value critical-value">0.1x</div>
+<div class="benchmark">Mínimo recomendado: 2.5x</div>
+</div>
+
+<div class="kpi-card">
+<div class="kpi-header">
+<span class="kpi-title">Endeudamiento</span>
+<span class="badge bg-warning">Alto riesgo</span>
+</div>
+<div class="kpi-value warning-value">62.7%</div>
+<div class="benchmark">Máximo recomendado: 50%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Triángulo de Sostenibilidad -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-project-diagram"></i>Triángulo de la Sostenibilidad</h2>
+
+<div class="row">
+<div class="col-12">
+<div class="card">
+<div class="card-body">
+<div class="triangle-diagram">
+<div class="triangle"></div>
+<div class="triangle-label triangle-top">RENTABILIDAD</div>
+<div class="triangle-label triangle-left">LIQUIDEZ</div>
+<div class="triangle-label triangle-right">ENDEUDAMIENTO</div>
+<div class="triangle-status health-red"></div>
+</div>
+
+<div class="text-center mt-4">
+<p>La empresa se encuentra en la <span class="critical-value">zona roja de insostenibilidad</span> en los tres pilares críticos. Cualquier perturbación podría desencadenar una crisis financiera.</p>
+<div class="d-flex justify-content-center gap-4 mt-3">
+<div>
+<span class="health-indicator health-red"></span> Crítico
+</div>
+<div>
+<span class="health-indicator health-yellow"></span> Advertencia
+</div>
+<div>
+<span class="health-indicator health-green"></span> Saludable
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Análisis de Rentabilidad -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-chart-line"></i>Análisis de Rentabilidad</h2>
+
+<div class="row">
+<div class="col-lg-8">
+<div class="card">
+<div class="card-header">
+Evolución de Margen Bruto y EBITDA
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="margenChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="card">
+<div class="card-header">
+Indicadores Clave
+</div>
+<div class="card-body">
+<div class="list-group">
+<div class="list-group-item d-flex justify-content-between align-items-center">
+Margen Bruto 2022
+<span class="badge bg-danger rounded-pill">22.5%</span>
+</div>
+<div class="list-group-item d-flex justify-content-between align-items-center">
+Margen EBITDA 2022
+<span class="badge bg-danger rounded-pill">0.5%</span>
+</div>
+<div class="list-group-item d-flex justify-content-between align-items-center">
+Margen Neto 2022
+<span class="badge bg-danger rounded-pill">-5.3%</span>
+</div>
+<div class="list-group-item d-flex justify-content-between align-items-center">
+ROE 2022
+<span class="badge bg-danger rounded-pill">-9.3%</span>
+</div>
+<div class="list-group-item d-flex justify-content-between align-items-center">
+ROI 2022
+<span class="badge bg-warning rounded-pill">0.3%</span>
+</div>
+<div class="list-group-item d-flex justify-content-between align-items-center">
+EBITDA/Intereses 2022
+<span class="badge bg-danger rounded-pill">0.1x</span>
+</div>
+</div>
+
+<div class="alert alert-card alert-danger mt-3">
+<i class="fas fa-exclamation-circle me-2"></i>
+<strong>Alerta crítica:</strong> La empresa no cubre sus intereses con EBITDA (0.1x). Esto representa un riesgo inminente de incumplimiento financiero.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row mt-4">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Análisis Detallado
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-6">
+<h5 class="mb-3">Problemas Clave</h5>
+<ul class="list-group list-group-flush">
+<li class="list-group-item d-flex">
+<i class="fas fa-times-circle text-danger me-2 mt-1"></i>
+<div>
+<strong>Colapso del margen bruto</strong>
+<p class="text-muted mb-0">Cayó de 41.0% a 18.7% entre 2019-2021, recuperándose parcialmente a 22.5% en 2022</p>
+</div>
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-times-circle text-danger me-2 mt-1"></i>
+<div>
+<strong>EBITDA marginal</strong>
+<p class="text-muted mb-0">Apenas 0.5% en 2022, cualquier variación mínima llevaría a pérdidas operativas</p>
+</div>
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-times-circle text-danger me-2 mt-1"></i>
+<div>
+<strong>Intereses en aumento</strong>
+<p class="text-muted mb-0">+52.8% en 2022, impactando severamente el resultado neto</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="col-md-6">
+<h5 class="mb-3">Oportunidades</h5>
+<ul class="list-group list-group-flush">
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+<div>
+<strong>Demanda creciente</strong>
+<p class="text-muted mb-0">Ingresos subieron 29.2% en 2022, muestra potencial de mercado</p>
+</div>
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+<div>
+<strong>Base de clientes sólida</strong>
+<p class="text-muted mb-0">Anticipos de clientes crecieron 77.6% en 2022</p>
+</div>
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+<div>
+<strong>Recuperación parcial del margen</strong>
+<p class="text-muted mb-0">Margen bruto mejoró de 18.7% a 22.5% entre 2021-2022</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Análisis de Liquidez -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-water"></i>Análisis de Liquidez</h2>
+
+<div class="row">
+<div class="col-lg-6">
+<div class="card">
+<div class="card-header">
+Ciclo de Caja y Rotación
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="liquidezChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6">
+<div class="card">
+<div class="card-header">
+Indicadores de Liquidez
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-hover">
+<thead>
+<tr>
+<th>Indicador</th>
+<th>2020</th>
+<th>2021</th>
+<th class="critical-value">2022</th>
+<th>Saludable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ciclo de Caja (días)</td>
+<td>977</td>
+<td>673</td>
+<td class="critical-value">628</td>
+<td>&lt; 90</td>
+</tr>
+<tr>
+<td>Rotación Clientes (días)</td>
+<td>85</td>
+<td>95</td>
+<td>80</td>
+<td>30-60</td>
+</tr>
+<tr>
+<td>Rotación Inventario (días)</td>
+<td>55</td>
+<td>77</td>
+<td>50</td>
+<td>30-60</td>
+</tr>
+<tr>
+<td>Rotación Arriendos (días)</td>
+<td>921</td>
+<td>615</td>
+<td>594</td>
+<td>&lt; 180</td>
+</tr>
+<tr>
+<td>FCL / Servicio Deuda</td>
+<td>1.3x</td>
+<td>-0.3x</td>
+<td class="warning-value">0.8x</td>
+<td>&gt; 2.0x</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="alert alert-warning mt-3">
+<i class="fas fa-exclamation-triangle me-2"></i>
+<strong>Advertencia:</strong> El ciclo de caja de 628 días es inaceptable. La empresa está utilizando capital de trabajo de manera extremadamente ineficiente, lo que explica la caída de caja final (-64.2% en 2022) a pesar de un FCL positivo.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row mt-4">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Caja y Flujo de Caja
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-4 metric-card">
+<div class="metric-title">Caja Final</div>
+<div class="metric-value critical-value">398</div>
+<div class="trend-down">↓ 64.2% vs 2021</div>
+</div>
+<div class="col-md-4 metric-card">
+<div class="metric-title">Flujo Caja Libre (FCL)</div>
+<div class="metric-value healthy-value">4,179</div>
+<div class="trend-up">↑ 1235% vs 2021</div>
+</div>
+<div class="col-md-4 metric-card">
+<div class="metric-title">FCL / Servicio Deuda</div>
+<div class="metric-value warning-value">0.8x</div>
+<div class="trend-up">↑ 266% vs 2021</div>
+</div>
+</div>
+
+<div class="progress-container">
+<div class="progress-label">
+<span>Origen del FCL 2022</span>
+<span>4,179 total</span>
+</div>
+<div class="progress" style="height: 20px;">
+<div class="progress-bar bg-success" role="progressbar" style="width: 17%" title="EBITDA: 706">
+EBITDA
+</div>
+<div class="progress-bar bg-info" role="progressbar" style="width: 83%" title="Variaciones Capital de Trabajo: 3,483">
+Capital de Trabajo
+</div>
+</div>
+<div class="text-muted" style="font-size: 0.85rem; margin-top: 0.25rem;">
+<i class="fas fa-info-circle me-1"></i>
+El 83% del FCL positivo proviene de variaciones en capital de trabajo (no es sostenible)
+</div>
+</div>
+
+<div class="alert alert-info mt-3">
+<i class="fas fa-lightbulb me-2"></i>
+<strong>Insight clave:</strong> El FCL positivo en 2022 no es sostenible porque depende de aumentar pasivos comerciales y otros ajustes no recurrentes. Si la empresa normaliza su gestión de capital de trabajo, el FCL podría volver a ser negativo.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Análisis de Endeudamiento -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-balance-scale"></i>Análisis de Endeudamiento</h2>
+
+<div class="row">
+<div class="col-lg-7">
+<div class="card">
+<div class="card-header">
+Estructura de Pasivo y Patrimonio
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-6">
+<div class="chart-container">
+<canvas id="endeudamientoChart"></canvas>
+</div>
+</div>
+<div class="col-md-6 d-flex align-items-center">
+<div class="w-100">
+<div class="progress-container">
+<div class="progress-label">
+<span>Endeudamiento 2022</span>
+<span>62.7%</span>
+</div>
+<div class="progress" style="height: 25px;">
+<div class="progress-bar bg-danger" role="progressbar" style="width: 62.7%" aria-valuenow="62.7" aria-valuemin="0" aria-valuemax="100">
+62.7%
+</div>
+</div>
+<div class="benchmark">Máximo recomendado: 50%</div>
+</div>
+
+<div class="progress-container">
+<div class="progress-label">
+<span>Cobertura Intereses 2022</span>
+<span>0.1x</span>
+</div>
+<div class="progress" style="height: 25px;">
+<div class="progress-bar bg-danger" role="progressbar" style="width: 5%" aria-valuenow="0.1" aria-valuemin="0" aria-valuemax="2.5">
+0.1x
+</div>
+</div>
+<div class="benchmark">Mínimo recomendado: 2.5x</div>
+</div>
+
+<div class="progress-container">
+<div class="progress-label">
+<span>Patrimonio 2022</span>
+<span>37.3%</span>
+</div>
+<div class="progress" style="height: 25px;">
+<div class="progress-bar bg-warning" role="progressbar" style="width: 37.3%" aria-valuenow="37.3" aria-valuemin="0" aria-valuemax="100">
+37.3%
+</div>
+</div>
+<div class="benchmark">Mínimo recomendado: 50%</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-5">
+<div class="card">
+<div class="card-header">
+Deuda Financiera Detallada
+</div>
+<div class="card-body">
+<div class="table-responsive">
+<table class="table table-sm">
+<thead>
+<tr>
+<th>Tipo de Deuda</th>
+<th>2022</th>
+<th>% Total</th>
+<th>Intereses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pasivo Financiero CP</td>
+<td>5,908</td>
+<td>40.1%</td>
+<td class="trend-down">↓ 30.8%</td>
+</tr>
+<tr>
+<td>Pasivo Financiero LP</td>
+<td>8,862</td>
+<td>59.9%</td>
+<td class="trend-down">↓ 7.9%</td>
+</tr>
+<tr class="table-active">
+<td><strong>Total Deuda Financiera</strong></td>
+<td><strong>14,770</strong></td>
+<td><strong>100%</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Intereses Anuales</td>
+<td>2,181</td>
+<td>14.8%</td>
+<td class="trend-up">↑ 52.8%</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="alert alert-danger mt-3">
+<i class="fas fa-skull-crossbones me-2"></i>
+<strong>Riesgo crítico:</strong> Con una cobertura de intereses de 0.1x, la empresa está técnicamente insolvente desde una perspectiva operativa. Si los acreedores exigen el cumplimiento de covenants, podría enfrentar problemas graves.
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row mt-4">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Análisis de Resultados Acumulados
+</div>
+<div class="card-body">
+<div class="row">
+<div class="col-md-8">
+<div class="chart-container">
+<canvas id="resultadosChart"></canvas>
+</div>
+</div>
+<div class="col-md-4">
+<h5 class="mb-3">Situación Patrimonial</h5>
+<ul class="list-group">
+<li class="list-group-item d-flex justify-content-between align-items-center">
+Patrimonio Total
+<span class="badge bg-warning rounded-pill">26,342</span>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+Resultados Acumulados
+<span class="badge bg-danger rounded-pill">-4,534</span>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+Resultado del Ejercicio
+<span class="badge bg-danger rounded-pill">-2,447</span>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+Reservas
+<span class="badge bg-success rounded-pill">5,394</span>
+</li>
+<li class="list-group-item d-flex justify-content-between align-items-center">
+Capital Social
+<span class="badge bg-primary rounded-pill">2,750</span>
+</li>
+</ul>
+
+<div class="alert alert-warning mt-3">
+<i class="fas fa-chart-pie me-2"></i>
+<strong>Advertencia:</strong> Los resultados acumulados negativos (-4,534) indican que la empresa ha tenido más pérdidas que ganancias en su historia reciente.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Recomendaciones Estratégicas -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-rocket"></i>Plan de Acción Estratégico</h2>
+
+<div class="timeline">
+<div class="timeline-item phase-1">
+<h5>Fase 1: Estabilización (0-6 meses)</h5>
+<p class="text-muted">Acciones inmediatas para evitar una crisis de liquidez</p>
+
+<div class="row mt-3">
+<div class="col-md-6">
+<div class="card recommendation-card">
+<div class="card-body">
+<h6><i class="fas fa-percentage me-2 text-danger"></i>Comercial: Recuperar Margen Bruto</h6>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Revisión urgente de precios con análisis de sensibilidad
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Segmentación de clientes por margen y liquidez
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Descontinuar líneas de productos con margen < 15%
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Programa de descuentos por pago anticipado
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-danger">Meta: Margen bruto > 25%</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card recommendation-card">
+<div class="card-body">
+<h6><i class="fas fa-cogs me-2 text-danger"></i>Operacional: Optimizar Capital de Trabajo</h6>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Sistema de seguimiento diario de cuentas por cobrar
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Penalizaciones por mora (>30 días)
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Implementar sistema JIT para reducir inventario a < 40 días
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Liquidar inventario obsoleto con descuentos agresivos
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-danger">Meta: Ciclo de caja < 400 días</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="timeline-item phase-2">
+<h5>Fase 2: Recuperación (6-18 meses)</h5>
+<p class="text-muted">Reconstrucción de la base financiera y operativa</p>
+
+<div class="row mt-3">
+<div class="col-md-6">
+<div class="card recommendation-card">
+<div class="card-body">
+<h6><i class="fas fa-money-bill-wave me-2 text-warning"></i>Financiero: Reestructurar la Deuda</h6>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Renegociar plazos de vencimiento con acreedores
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Reducir tasas de interés mediante garantías adicionales
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Convertir parte de la deuda en equity
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Destinar 100% del FCL positivo a reducir deuda financiera
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-warning">Meta: Endeudamiento < 55%</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-md-6">
+<div class="card recommendation-card">
+<div class="card-body">
+<h6><i class="fas fa-user-tie me-2 text-warning"></i>Ejecutivo: Gobernanza y Monitoreo</h6>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Comité de crisis financiera con reuniones semanales
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Definir triggers para acciones inmediatas
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Vincular bonificaciones a mejora del margen bruto
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Reporte ejecutivo simplificado con 5 KPIs críticos
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-warning">Meta: Margen EBITDA > 8%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="timeline-item phase-3">
+<h5>Fase 3: Crecimiento Sostenible (18+ meses)</h5>
+<p class="text-muted">Consolidación y expansión con base sólida</p>
+
+<div class="row mt-3">
+<div class="col-12">
+<div class="card recommendation-card">
+<div class="card-body">
+<div class="row">
+<div class="col-md-4 metric-card">
+<div class="metric-title">Ciclo de Caja</div>
+<div class="metric-value healthy-value">&lt; 150 días</div>
+<div>Meta a 18+ meses</div>
+</div>
+<div class="col-md-4 metric-card">
+<div class="metric-title">Margen EBITDA</div>
+<div class="metric-value healthy-value">&gt; 12%</div>
+<div>Meta a 18+ meses</div>
+</div>
+<div class="col-md-4 metric-card">
+<div class="metric-title">ROE</div>
+<div class="metric-value healthy-value">&gt; 5%</div>
+<div>Meta a 18+ meses</div>
+</div>
+</div>
+
+<div class="mt-3">
+<h6><i class="fas fa-bullseye me-2 text-success"></i>Estrategias Clave</h6>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Implementar sistema avanzado de gestión de capital de trabajo
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Optimizar estructura de costos con análisis ABC
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Desarrollar estrategia de precios dinámica basada en valor
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-check-circle text-success me-2 mt-1"></i>
+Diversificar fuentes de ingresos para reducir dependencia
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Escenarios y Proyecciones -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-eye"></i>Escenarios y Proyecciones</h2>
+
+<div class="row">
+<div class="col-md-4">
+<div class="scenario-card scenario-base">
+<div class="scenario-header">
+<div class="scenario-icon">
+<i class="fas fa-moon"></i>
+</div>
+<h5>Escenario Base</h5>
+</div>
+<p>Si no hay cambios significativos en la estrategia actual:</p>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Caja negativa en 14 meses
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Problemas de cumplimiento con acreedores en 12 meses
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Margen EBITDA permanece por debajo del 2%
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-warning">Probabilidad: 60%</span>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="scenario-card scenario-optimistic">
+<div class="scenario-header">
+<div class="scenario-icon">
+<i class="fas fa-sun"></i>
+</div>
+<h5>Escenario Optimista</h5>
+</div>
+<p>Si se implementan las recomendaciones estratégicas:</p>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Estabilidad financiera en 18 meses
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Margen EBITDA > 8% en 12 meses
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Ciclo de caja < 250 días en 18 meses
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-success">Probabilidad: 25%</span>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="scenario-card scenario-pessimistic">
+<div class="scenario-header">
+<div class="scenario-icon">
+<i class="fas fa-cloud-rain"></i>
+</div>
+<h5>Escenario Pesimista</h5>
+</div>
+<p>Si persisten los problemas sin intervención:</p>
+<ul class="list-group list-group-flush mt-2">
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Crisis de liquidez en 12 meses
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Incumplimiento de covenants financieros
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Posible necesidad de reestructuración legal
+</li>
+</ul>
+<div class="mt-3">
+<span class="badge bg-danger">Probabilidad: 15%</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row mt-4">
+<div class="col-md-12">
+<div class="card">
+<div class="card-header">
+Proyección de Caja (Meses)
+</div>
+<div class="card-body">
+<div class="chart-container">
+<canvas id="proyeccionCajaChart"></canvas>
+</div>
+<div class="mt-3">
+<p>La proyección asume:</p>
+<ul>
+<li><strong>Escenario Base:</strong> Sin cambios en la estrategia actual</li>
+<li><strong>Escenario Optimista:</strong> Implementación completa del plan de acción</li>
+<li><strong>Escenario Pesimista:</strong> Empeoramiento de condiciones del mercado</li>
+</ul>
+<div class="alert alert-info">
+<i class="fas fa-info-circle me-2"></i>
+<strong>Recomendación crítica:</strong> La empresa debe actuar inmediatamente para evitar entrar en el escenario pesimista. El tiempo para intervenir es limitado (3-6 meses).
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Próximos Pasos -->
+<div class="dashboard-section">
+<h2 class="section-title"><i class="fas fa-road"></i>Próximos Pasos Recomendados</h2>
+
+<div class="row">
+<div class="col-md-12">
+<div class="card">
+<div class="card-body">
+<div class="row">
+<div class="col-md-4 metric-card phase-1">
+<i class="fas fa-exclamation-triangle fa-2x text-danger mb-3"></i>
+<h5>Acciones Inmediatas (0-30 días)</h5>
+<ul class="list-group list-group-flush mt-3">
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Convocar reunión de crisis financiera
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Realizar diagnóstico detallado de márgenes por producto
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Iniciar conversaciones con acreedores clave
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-danger me-2 mt-1" style="font-size: 0.5rem;"></i>
+Congelar gastos no esenciales
+</li>
+</ul>
+</div>
+
+<div class="col-md-4 metric-card phase-2">
+<i class="fas fa-chart-line fa-2x text-warning mb-3"></i>
+<h5>Acciones a Corto Plazo (30-90 días)</h5>
+<ul class="list-group list-group-flush mt-3">
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Implementar plan de acción de 90 días
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Reestructurar cartera de clientes
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Optimizar gestión de inventario
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-warning me-2 mt-1" style="font-size: 0.5rem;"></i>
+Renegociar términos con proveedores
+</li>
+</ul>
+</div>
+
+<div class="col-md-4 metric-card phase-3">
+<i class="fas fa-seedling fa-2x text-success mb-3"></i>
+<h5>Acciones Estratégicas (90+ días)</h5>
+<ul class="list-group list-group-flush mt-3">
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Reestructuración financiera completa
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Implementar sistema de gestión de capital de trabajo
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Revisar modelo de negocio y propuesta de valor
+</li>
+<li class="list-group-item d-flex">
+<i class="fas fa-circle text-success me-2 mt-1" style="font-size: 0.5rem;"></i>
+Desarrollar estrategia de crecimiento sostenible
+</li>
+</ul>
+</div>
+</div>
+
+<div class="alert alert-primary mt-4">
+<div class="d-flex">
+<i class="fas fa-lightbulb fa-2x text-primary me-3 mt-1"></i>
+<div>
+<h5 class="mb-1">Conclusión Final</h5>
+<p class="mb-0">
+La empresa no está quebrada, pero está navegando en aguas peligrosas.
+<strong>El problema no es la demanda, sino la eficiencia operativa y la estructura de costos</strong>.
+Con la estrategia adecuada, puede convertir esta crisis en una oportunidad para construir una base más sólida y sostenible.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="dashboard-footer">
+<p>Dashboard Financiero Estratégico | Actualizado: Octubre 2023 | Confidencial - Para uso interno de stakeholders</p>
+<p>Este análisis se basa en datos financieros históricos y proyecciones razonables. Las decisiones estratégicas deben complementarse con análisis adicionales y asesoría especializada.</p>
+</div>
+</div>
+
+<script>
+// Datos para los gráficos
+const years = ['2019', '2020', '2021', '2022'];
+
+// Gráfico de Margen
+const margenCtx = document.getElementById('margenChart').getContext('2d');
+const margenChart = new Chart(margenCtx, {
+type: 'line',
+data: {
+labels: years,
+datasets: [
+{
+label: 'Margen Bruto',
+data: [41.0, 37.6, 18.7, 22.5],
+borderColor: '#17a2b8',
+backgroundColor: 'rgba(23, 162, 184, 0.1)',
+borderWidth: 3,
+tension: 0.3,
+fill: true
+},
+{
+label: 'Margen EBITDA',
+data: [12.4, 9.9, -8.6, 0.5],
+borderColor: '#dc3545',
+backgroundColor: 'rgba(220, 53, 69, 0.1)',
+borderWidth: 3,
+tension: 0.3,
+fill: true
+},
+{
+label: 'Margen Neto',
+data: [4.2, 0.9, -11.1, -5.3],
+borderColor: '#6c757d',
+borderDash: [5, 5],
+borderWidth: 2,
+tension: 0.3
+}
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'top',
+},
+title: {
+display: true,
+text: 'Evolución de los márgenes (%)'
+}
+},
+scales: {
+y: {
+beginAtZero: false,
+min: -15,
+max: 45,
+title: {
+display: true,
+text: 'Porcentaje (%)'
+}
+}
+}
+}
+});
+
+// Gráfico de Liquidez
+const liquidezCtx = document.getElementById('liquidezChart').getContext('2d');
+const liquidezChart = new Chart(liquidezCtx, {
+type: 'bar',
+data: {
+labels: ['2020', '2021', '2022'],
+datasets: [
+{
+label: 'Ciclo de Caja (días)',
+data: [977, 673, 628],
+backgroundColor: 'rgba(220, 53, 69, 0.7)',
+borderColor: 'rgba(220, 53, 69, 1)',
+borderWidth: 1
+},
+{
+label: 'Rotación Clientes (días)',
+data: [85, 95, 80],
+backgroundColor: 'rgba(255, 193, 7, 0.7)',
+borderColor: 'rgba(255, 193, 7, 1)',
+borderWidth: 1
+},
+{
+label: 'Rotación Inventario (días)',
+data: [55, 77, 50],
+backgroundColor: 'rgba(40, 167, 69, 0.7)',
+borderColor: 'rgba(40, 167, 69, 1)',
+borderWidth: 1
+},
+{
+label: 'Rotación Arriendos (días)',
+data: [921, 615, 594],
+backgroundColor: 'rgba(23, 162, 184, 0.7)',
+borderColor: 'rgba(23, 162, 184, 1)',
+borderWidth: 1
+}
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'top',
+},
+title: {
+display: true,
+text: 'Indicadores de Liquidez (días)'
+}
+},
+scales: {
+y: {
+beginAtZero: true,
+title: {
+display: true,
+text: 'Días'
+}
+}
+}
+}
+});
+
+// Gráfico de Endeudamiento
+const endeudamientoCtx = document.getElementById('endeudamientoChart').getContext('2d');
+const endeudamientoChart = new Chart(endeudamientoCtx, {
+type: 'doughnut',
+data: {
+labels: ['Pasivo', 'Patrimonio'],
+datasets: [{
+data: [62.7, 37.3],
+backgroundColor: [
+'rgba(220, 53, 69, 0.7)',
+'rgba(255, 193, 7, 0.7)'
+],
+borderColor: [
+'rgba(220, 53, 69, 1)',
+'rgba(255, 193, 7, 1)'
+],
+borderWidth: 1
+}]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'right',
+},
+title: {
+display: true,
+text: 'Estructura de Financiamiento 2022'
+},
+tooltip: {
+callbacks: {
+label: function(context) {
+return context.label + ': ' + context.parsed + '%';
+}
+}
+}
+}
+}
+});
+
+// Gráfico de Resultados
+const resultadosCtx = document.getElementById('resultadosChart').getContext('2d');
+const resultadosChart = new Chart(resultadosCtx, {
+type: 'bar',
+data: {
+labels: ['2019', '2020', '2021', '2022'],
+datasets: [
+{
+label: 'Resultados Acumulados',
+data: [0, 1552, 309, -4534],
+backgroundColor: 'rgba(220, 53, 69, 0.7)',
+borderColor: 'rgba(220, 53, 69, 1)',
+borderWidth: 1
+},
+{
+label: 'Resultados del Ejercicio',
+data: [1551, 309, -3954, -2447],
+backgroundColor: 'rgba(23, 162, 184, 0.7)',
+borderColor: 'rgba(23, 162, 184, 1)',
+borderWidth: 1
+}
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'top',
+},
+title: {
+display: true,
+text: 'Resultados Financieros (USD)'
+}
+},
+scales: {
+y: {
+beginAtZero: false,
+min: -5000,
+max: 2000,
+title: {
+display: true,
+text: 'Valor (USD)'
+}
+}
+}
+}
+});
+
+// Gráfico de Proyección de Caja
+const proyeccionCtx = document.getElementById('proyeccionCajaChart').getContext('2d');
+const proyeccionChart = new Chart(proyeccionCtx, {
+type: 'line',
+data: {
+labels: ['Hoy', '3m', '6m', '9m', '12m', '15m', '18m', '21m', '24m'],
+datasets: [
+{
+label: 'Escenario Base',
+data: [400, 250, 100, -50, -200, -350, -500, -650, -800],
+borderColor: '#ffc107',
+borderDash: [5, 5],
+borderWidth: 2,
+tension: 0.2
+},
+{
+label: 'Escenario Optimista',
+data: [400, 500, 600, 650, 700, 750, 800, 850, 900],
+borderColor: '#28a745',
+borderWidth: 2,
+tension: 0.2
+},
+{
+label: 'Escenario Pesimista',
+data: [400, 150, -100, -350, -600, -850, -1100, -1350, -1600],
+borderColor: '#dc3545',
+borderDash: [10, 5],
+borderWidth: 2,
+tension: 0.2
+}
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+plugins: {
+legend: {
+position: 'top',
+},
+title: {
+display: true,
+text: 'Proyección de Caja (USD)'
+}
+},
+scales: {
+y: {
+beginAtZero: false,
+min: -1800,
+max: 1000,
+title: {
+display: true,
+text: 'Valor (USD)'
+}
+}
+}
+}
+});
+</script></body>
+</html>
