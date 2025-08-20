@@ -8,7 +8,21 @@
         "type": "tabs",
         "children": [
           {
-            "id": "73aad7151a7947cc",
+            "id": "d8068253e279a5d0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Taller 2/Balance.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Balance"
+            }
+          },
+          {
+            "id": "09ac507b6de84289",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,55 +34,24 @@
               "icon": "lucide-file",
               "title": "Taller 2"
             }
-          },
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "5f042e9bb723190e",
+        "type": "tabs",
+        "children": [
           {
-            "id": "009d54eab0b9e195",
+            "id": "84845172fa9e68fb",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "excalidraw",
               "state": {
-                "file": "Taller 2/Taller nueva junta directiva en empresa 20250730.pdf",
-                "page": 5,
-                "left": 104,
-                "top": 87,
-                "zoom": 1.7
+                "file": "Taller 2/Excalidraw/Taller2.excalidraw"
               },
-              "icon": "lucide-file-text",
-              "title": "Taller nueva junta directiva en empresa 20250730"
-            }
-          },
-          {
-            "id": "cc79d1ec17146469",
-            "type": "leaf",
-            "dimension": 50,
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Taller 2/Análisis y Estrategias Maderas y Metales_.pdf",
-                "page": 7,
-                "left": -16,
-                "top": 642,
-                "zoom": 0.9632352941176471
-              },
-              "icon": "lucide-file-text",
-              "title": "Análisis y Estrategias Maderas y Metales_"
-            }
-          },
-          {
-            "id": "d8068253e279a5d0",
-            "type": "leaf",
-            "dimension": 33.333333333333336,
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "Taller 2/Análisis financiero de Maderas y Metales S.A._.pdf",
-                "page": 10,
-                "left": -16,
-                "top": 324,
-                "zoom": 0.9632352941176471
-              },
-              "icon": "lucide-file-text",
-              "title": "Análisis financiero de Maderas y Metales S.A._"
+              "icon": "excalidraw-icon",
+              "title": "Taller2"
             }
           }
         ]
@@ -222,22 +205,22 @@
       "pdf-plus:PDF++: Toggle auto-paste": false
     }
   },
-  "active": "73aad7151a7947cc",
+  "active": "09ac507b6de84289",
   "lastOpenFiles": [
-    "Taller 2/Análisis y Estrategias Maderas y Metales_2.pdf",
-    "Taller 2/Análisis financiero de Maderas y Metales S.A._.pdf",
-    "Taller 2/Taller nueva junta directiva en empresa 20250730.pdf",
-    "Taller 2/Análisis Estratégico Integral para el Taller de Planificación 2025.pdf",
+    "Taller 2/Excalidraw/Taller2.excalidraw",
     "Taller 2/Taller 2.md",
-    "Taller 2/Análisis y Estrategias Maderas y Metales_.pdf",
-    "Taller 2/Análisis Financiero y Estratégico de la Empresa para Gerentes Operativos.pdf",
-    "Taller 2/No Favoritos/stg2.html",
-    "Taller 2/No Favoritos/stg.html",
-    "Taller 2/No Favoritos",
-    "Taller 2/Drawing 2025-08-18 11.22.04.excalidraw.md",
+    "Taller 2/Taller nueva junta directiva en empresa 20250730.pdf",
     "Taller 2/Balance.md",
+    "Taller 2/Análisis y Estrategias Maderas y Metales_.pdf",
+    "Taller 2/JSON/flujo_de_caja.json",
+    "Taller 2/JSON/rentabilidad.json",
+    "Taller 2/JSON/balance_general_de_pasivos.json",
+    "Taller 2/JSON/balance_general_de_activos.json",
+    "Taller 2/JSON/balance_financiero.json",
+    "Taller 2/JSON",
+    "Taller 2/Nueva carpeta",
+    "Taller 2/Drawing 2025-08-18 11.22.04.excalidraw.md",
     "Pasted image 20250818135341.png",
-    "Taller 2/stg.html",
     "Taller 2/Images/Pasted image 20250813182316.png",
     "Taller 2/Images/Pasted image 20250813182027.png",
     "Taller 2/Images/Pasted Image 20250813190544_659.png",

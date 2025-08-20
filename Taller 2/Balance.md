@@ -1033,509 +1033,513 @@ Por ultimo se tiene este reporte que corresponde al flujo de caja por year por v
 ```json
 {
 
-"FlujoDeCaja": {
+    "FlujoDeCaja": {
 
-"EBITDA": [
+        "EBITDA": [
 
-{
+            {
 
-"nombre": "EBITDA",
+                "nombre": "EBITDA",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 3275,
+                "2020": 3275,
 
-"2021": -3090,
+                "2021": -3090,
 
-"2022": 237
+                "2022": 237
 
-}
+            }
 
-],
+        ],
 
-"Impuestos": [
+        "Impuestos": [
 
-{
+            {
 
-"nombre": "Impuestos",
+                "nombre": "Impuestos",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 73,
+                "2020": 73,
 
-"2021": 682,
+                "2021": 682,
 
-"2022": -1
+                "2022": -1
 
-}
+            }
 
-],
+        ],
 
-"Flujo de Caja Bruto": [
+        "Flujo de Caja Bruto": [
 
-{
+            {
 
-"nombre": "Flujo de Caja Bruto",
+                "nombre": "Flujo de Caja Bruto",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 3348,
+                "2020": 3348,
 
-"2021": -2408,
+                "2021": -2408,
 
-"2022": 237
+                "2022": 237
 
-}
+            }
 
-],
+        ],
 
-"Variaciones en Activos y Pasivos Corrientes": [
+        "Variaciones en Activos y Pasivos Corrientes": [
 
-{
+            {
 
-"nombre": "Var KTO",
+                "nombre": "Var KTO",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 523,
+                "2020": 523,
 
-"2021": 2428,
+                "2021": 2428,
 
-"2022": 3483
+                "2022": 3483
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var C*C Clientes",
+                "nombre": "Var C*C Clientes",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 1588,
+                "2020": 1588,
 
-"2021": -1640,
+                "2021": -1640,
 
-"2022": 776
+                "2022": 776
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var CxC Arriendo",
+                "nombre": "Var CxC Arriendo",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 1628,
+                "2020": 1628,
 
-"2021": -479,
+                "2021": -479,
 
-"2022": 752
+                "2022": 752
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Inventario",
+                "nombre": "Var Inventario",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 1381,
+                "2020": 1381,
 
-"2021": -3039,
+                "2021": -3039,
 
-"2022": 1206
+                "2022": 1206
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Anticipo Impuesto",
+                "nombre": "Var Anticipo Impuesto",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 44,
+                "2020": 44,
 
-"2021": -1596,
+                "2021": -1596,
 
-"2022": 528
+                "2022": 528
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Anticipos Operacionales",
+                "nombre": "Var Anticipos Operacionales",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 2,
+                "2020": 2,
 
-"2021": 29,
+                "2021": 29,
 
-"2022": 110
+                "2022": 110
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var C*P Comerciales",
+                "nombre": "Var C*P Comerciales",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -3955,
+                "2020": -3955,
 
-"2021": 5393,
+                "2021": 5393,
 
-"2022": -83
+                "2022": -83
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Impuestos por Pagar",
+                "nombre": "Var Impuestos por Pagar",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -336,
+                "2020": -336,
 
-"2021": 1418,
+                "2021": 1418,
 
-"2022": -987
+                "2022": -987
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Obligaciones Laborales",
+                "nombre": "Var Obligaciones Laborales",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 20,
+                "2020": 20,
 
-"2021": 25,
+                "2021": 25,
 
-"2022": 160
+                "2022": 160
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Anticipos Operacionales",
+                "nombre": "Var Anticipos Operacionales",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 193,
+                "2020": 193,
 
-"2021": 2317,
+                "2021": 2317,
 
-"2022": 3113
+                "2022": 3113
 
-}
+            }
 
-],
+        ],
 
-"Flujo de Caja Operativo": [
+        "Flujo de Caja Operativo": [
 
-{
+            {
 
-"nombre": "Flujo de Caja Operativo",
+                "nombre": "Flujo de Caja Operativo",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 3871,
+                "2020": 3871,
 
-"2021": 20,
+                "2021": 20,
 
-"2022": 3720
+                "2022": 3720
 
-}
+            }
 
-],
+        ],
 
-"Inversión": [
+        "Inversión": [
 
-{
+            {
 
-"nombre": "Inversión Capex",
+                "nombre": "Inversión Capex",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -1177,
+                "2020": -1177,
 
-"2021": -357,
+                "2021": -357,
 
-"2022": 572
+                "2022": 572
 
-},
+            },
 
-{
+            {
 
-"nombre": "Inversión Intangibles y Diferidos",
+                "nombre": "Inversión Intangibles y Diferidos",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -92,
+                "2020": -92,
 
-"2021": -32,
+                "2021": -32,
 
-"2022": -113
+                "2022": -113
 
-}
+            }
 
-],
+        ],
 
-"Flujo de Caja Libre": [
+        "Flujo de Caja Libre": [
 
-{
+            {
 
-"nombre": "Flujo de Caja Libre",
+                "nombre": "Flujo de Caja Libre",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 2602,
+                "2020": 2602,
 
-"2021": -369,
+                "2021": -369,
 
-"2022": 4179
+                "2022": 4179
 
-}
+            }
 
-],
+        ],
 
-"Financiamiento": [
+        "Financiamiento": [
 
-{
+            {
 
-"nombre": "Intereses",
+                "nombre": "Intereses",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -1938,
+                "2020": -1938,
 
-"2021": -1427,
+                "2021": -1427,
 
-"2022": -2181
+                "2022": -2181
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Deuda Financiera CP",
+                "nombre": "Var Deuda Financiera CP",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 655,
+                "2020": 655,
 
-"2021": 158,
+                "2021": 158,
 
-"2022": -2626
+                "2022": -2626
 
-},
+            },
 
-{
+            {
 
-"nombre": "Var Deuda Financiera LP",
+                "nombre": "Var Deuda Financiera LP",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 849,
+                "2020": 849,
 
-"2021": 177,
+                "2021": 177,
 
-"2022": 761
+                "2022": -761
 
-}
+            }
 
-],
+        ],
 
-"Flujo de Caja Remanente": [
+        "Flujo de Caja Remanente": [
 
-{
+            {
 
-"nombre": "Flujo de Caja Remanente",
+                "nombre": "Flujo de Caja Remanente",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 2168,
+                "2020": 2168,
 
-"2021": -1461,
+                "2021": -1461,
 
-"2022": -1389
+                "2022": -1389
 
-}
+            }
 
-],
+        ],
 
-"Otros Ingresos / Egresos": [
+        "Otros Ingresos / Egresos": [
 
-{
+            {
 
-"nombre": "Otros Ingresos / Egresos Recurrentes",
+                "nombre": "Otros Ingresos / Egresos Recurrentes",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -90,
+                "2020": -90,
 
-"2021": -169,
+                "2021": -169,
 
-"2022": -309
+                "2022": -309
 
-},
+            },
 
-{
+            {
 
-"nombre": "Otros Ingresos / Egresos No Recurrentes",
+                "nombre": "Otros Ingresos / Egresos No Recurrentes",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -892,
+                "2020": -892,
 
-"2021": 180,
+                "2021": 180,
 
-"2022": -194
+                "2022": -194
 
-},
+            },
 
-{
+            {
 
-"nombre": "Otros Activos / Pasivos OP",
+                "nombre": "Otros Activos / Pasivos OP",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 6,
+                "2020": 6,
 
-"2021": 104,
+                "2021": 104,
 
-"2022": 2899
+                "2022": 2899
 
-},
+            },
 
-{
+            {
 
-"nombre": "Otros Activos / Pasivos LP",
+                "nombre": "Otros Activos / Pasivos LP",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -415,
+                "2020": -415,
 
-"2021": 563,
+                "2021": 563,
 
-"2022": 813
+                "2022": 813
 
-}
+            }
 
-],
+        ],
 
-"Flujo de Caja para Socios": [
+        "Flujo de Caja para Socios": [
 
-{
+            {
 
-"nombre": "Flujo de Caja para Socios",
+                "nombre": "Flujo de Caja para Socios",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 777,
+                "2020": 777,
 
-"2021": -783,
+                "2021": -783,
 
-"2022": 194
+                "2022": 194
 
-}
+            }
 
-],
+        ],
 
-"Vinculados Económicos CP": [
+        "Vinculados Económicos CP": [
 
-{
+            {
 
-"nombre": "Vinculados Económicos CP",
+                "nombre": "Vinculados Económicos CP",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": -2184,
+                "2020": -2184,
 
-"2021": -321,
+                "2021": -321,
 
-"2022": -329
+                "2022": -329
 
-}
+            }
 
-],
+        ],
 
-"Inversión Patrimonial": [
+        "Inversión Patrimonial": [
 
-{
+            {
 
-"nombre": "Inversión Patrimonial",
+                "nombre": "Inversión Patrimonial",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 1773,
+                "2020": 1773,
 
-"2021": 1588,
+                "2021": 1588,
 
-"2022": 580
+                "2022": 580
 
-}
+            }
 
-],
+        ],
 
-"Flujo de Caja del Período": [
+        "Flujo de Caja del Período": [
 
-{
+            {
 
-"nombre": "Flujo de Caja del Período",
+                "nombre": "Flujo de Caja del Período",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 366,
+                "2020": 366,
 
-"2021": 484,
+                "2021": 484,
 
-"2022": -715
+                "2022": -715
 
-}
+            }
 
-],
+        ],
 
-"Caja Inicial": [
+        "Caja Inicial": [
 
-{
+            {
 
-"nombre": "Caja Inicial",
+                "nombre": "Caja Inicial",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 263,
+                "2020": 263,
 
-"2021": 629,
+                "2021": 629,
 
-"2022": 1113
+                "2022": 1113
 
-}
+            }
 
-],
+        ],
 
-"Caja Final": [
+        "Caja Final": [
 
-{
+            {
 
-"nombre": "Caja Final",
+                "nombre": "Caja Final",
 
-"unidad": "COP Millones",
+                "unidad": "COP Millones",
 
-"2020": 629,
+                "2020": 629,
 
-"2021": 1113,
+                "2021": 1113,
 
-"2022": 398
+                "2022": 398
 
-}
+            }
 
-]
+        ]
 
-}
+    }
 
 }
 ```
 
-Hay demasiada informacion. Realiza un analisis financiero sobre esos datos. Luego procesa la informacion, realiza graficas apropiadas, realiza conclusiones sobre la informacion. Realiza tambien recomendaciones desde el punto de vista comercial, operacional, financiero, ejecutivo, y cual deberia ser la estrategia general. Realiza tambien un dashboard. Recuerda, son stakeholders, ser muy tecnico y muy detallado puede ser malo, pero ser simplista puede ser mucho peor. Se espera que seas el mejor financiero posible. Realiza tambien estrategias desde el punto de vista de entorno en Colombia.
+Analisis realizado
+
+Los ingresos operacionales han alcanzado máximos históricos (46202 millones). Sin embargo, con el crecimiento en ventas, se observa también un crecimiento en los costos operacionales (de de 21805 millones a 35823 millones en solo 3 años, un 64% más), que crece en una mayor tasa que los ingresos operacionales (25% de crecimiento entre 2019-2022). A pesar de esto, los gastos se han mantenido relativamente estables (4.7%, 23.3%, -0.8% para gastos de administración y -18.6%--1.9%, 6.2%) lo que en principio resalta el compromiso de la empresa por una política de recuperación y crecimiento sostenible. Sin embargo, un análisis más profundo devela que si bien se tuvo una recuperación de la salud financiera (3090 millones de EBITDA en perdidas a 237 en ganancias de EBITDA entre 2021 a lo que va de 2022), la utilidad neta sigue siendo mermada por  gastos financieros relevantes, que consumen la mejora operativa. Así, aunque el negocio demostró capacidad de generar volumen y flujo de clientes, la captura de valor aún es débil: el EBITDA recién retorna a terreno positivo en 2022, pero la utilidad neta sigue siendo insuficientes por la cantidad de egresos e intereses cubiertos durante el periodo. ¿Por qué sucede esto?. Un análisis del flujo de caja devela que hubo liberaciones de capital de trabajo (una muy buena estrategia para obtener liquidez en el corto plazo), anticipos operacionales que ayudaron a compensar el EBITDA (FCO de 3720 millones, 3,483 millones en "Var KTO" lo cual no es sostenible a largo plazo). Con este dinero, la empresa ha invertido fuertemente en el servicio a la deuda (intereses + amortizaciones), ha cubierto pagos de 2181 millones en intereses, 2626 en deudas de corto plazo y 761 de deuda a largo plazo. Sin embargo, a pesar de que se han obtenido esfuerzos por disminuir el ciclo de caja (628 dias), sigue siendo largo, principalmente por las cuentas por cobrar de arriendos que retrasan la conversión de efectivo (14285 millones). Como resultado, se tiene una caja baja de 398 millones a pesar de los incrementos en los ingresos operacionales. Si no se hubieran realizados tales esfuerzos, con el solo EBITDA no hubiera sido posible cubrir la deuda (EBITDA/Intereses 0.1, de los recursos necesarios solo se cubre el 10% de los intereses un nivel muy peligroso, EBITDA/Servicio a la Deuda 0). ¿En que se traduce esto?. La empresa depende de acelerar la cobranza para la liberación de recursos. Si se detiene en el análisis de los activos se puede encontrar que la base de activos es relativamente robusta (10233 millones en cuentas por cobrar a clientes), con un total de activo corriente de 32708 millones, afectado por los arriendos por cobrar (14285 millones), y activos no corriente de 37877, sumando activos por 70585 millones. Sin embargo, aunque el número pueda sonar bastante grande, la verdad es que el endeudamiento ha alcanzado ya 2/3 aproximadamente del total de activos, colocando una mayor presión en el corto plazo (el pasivo corriente y el activo corriente son casi iguales lo cual indica una alerta de iliquidez a corto plazo, el pasivo corriente representa un 70.8% del total del pasivo), y el patrimonio se ha visto reducido por la acumulación de perdidas multimillonarias de 2021 y lo que va de 2022 (el patrimonio ha caído de 29,653 millones (2019) a 26,342 millones (2022), mientras el pasivo total ha aumentado, lo que indica una erosión del colchón de seguridad). Hay que observar que la empresa se encuentra destruyendo valor para sus accionistas (ROE -9.3%), los margenes siguen siendo negativos (-5.3% de Margen Neto). 
+
+¿Es este análisis un buen análisis de la información reportada?. Destaca lo bueno, destaca las mejoras o los puntos que seria bueno cubrir, destaca las debilidades. Actua como si fueras un evaluador de finanzas profesional

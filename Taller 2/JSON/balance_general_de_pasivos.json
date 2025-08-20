@@ -1,0 +1,418 @@
+{
+  "BalanceGeneral": [
+    {
+      "nombre": "Pasivo Financiero",
+      "2019": {
+        "valor": 7721,
+        "porcentaje_parte": 11.5,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 8376,
+        "porcentaje_parte": 12.8,
+        "var_porcentaje": 8.5
+      },
+      "2021": {
+        "valor": 8534,
+        "porcentaje_parte": 11.6,
+        "var_porcentaje": 1.9
+      },
+      "2022": {
+        "valor": 5908,
+        "porcentaje_parte": 8.4,
+        "var_porcentaje": -30.8
+      }
+    },
+    {
+      "nombre": "Proveedores",
+      "2019": {
+        "valor": 10903,
+        "porcentaje_parte": 16.2,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 8948,
+        "porcentaje_parte": 10.6,
+        "var_porcentaje": -18.3
+      },
+      "2021": {
+        "valor": 12341,
+        "porcentaje_parte": 16.8,
+        "var_porcentaje": 77.6
+      },
+      "2022": {
+        "valor": 12258,
+        "porcentaje_parte": 17.4,
+        "var_porcentaje": -0.7
+      }
+    },
+    {
+      "nombre": "Impuestos por Pagar",
+      "2019": {
+        "valor": 2229,
+        "porcentaje_parte": 3.3,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 1893,
+        "porcentaje_parte": 2.9,
+        "var_porcentaje": -15.1
+      },
+      "2021": {
+        "valor": 3311,
+        "porcentaje_parte": 4.5,
+        "var_porcentaje": 74.9
+      },
+      "2022": {
+        "valor": 2324,
+        "porcentaje_parte": 3.3,
+        "var_porcentaje": -29.8
+      }
+    },
+    {
+      "nombre": "Obligaciones Laborales",
+      "2019": {
+        "valor": 1025,
+        "porcentaje_parte": 1.5,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 1005,
+        "porcentaje_parte": 1.5,
+        "var_porcentaje": -2.0
+      },
+      "2021": {
+        "valor": 1030,
+        "porcentaje_parte": 1.4,
+        "var_porcentaje": 2.5
+      },
+      "2022": {
+        "valor": 870,
+        "porcentaje_parte": 1.2,
+        "var_porcentaje": -15.5
+      }
+    },
+    {
+      "nombre": "Anticipos Clientes",
+      "2019": {
+        "valor": 1503,
+        "porcentaje_parte": 2.2,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 1696,
+        "porcentaje_parte": 2.6,
+        "var_porcentaje": 12.8
+      },
+      "2021": {
+        "valor": 4013,
+        "porcentaje_parte": 5.5,
+        "var_porcentaje": 136.6
+      },
+      "2022": {
+        "valor": 7126,
+        "porcentaje_parte": 10.1,
+        "var_porcentaje": 77.6
+      }
+    },
+    {
+      "nombre": "C*P Vinculados Económicos",
+      "2019": {
+        "valor": 2834,
+        "porcentaje_parte": 4.2,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 650,
+        "porcentaje_parte": 1.0,
+        "var_porcentaje": -77.1
+      },
+      "2021": {
+        "valor": 329,
+        "porcentaje_parte": 0.4,
+        "var_porcentaje": -49.4
+      },
+      "2022": {
+        "valor": 0,
+        "porcentaje_parte": 0.0,
+        "var_porcentaje": -100.0
+      }
+    },
+    {
+      "nombre": "Pasivo Corriente",
+      "2019": {
+        "valor": 26215,
+        "porcentaje_parte": 39.0,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 20568,
+        "porcentaje_parte": 31.5,
+        "var_porcentaje": -21.5
+      },
+      "2021": {
+        "valor": 29558,
+        "porcentaje_parte": 40.3,
+        "var_porcentaje": 43.7
+      },
+      "2022": {
+        "valor": 31385,
+        "porcentaje_parte": 44.5,
+        "var_porcentaje": 6.2
+      }
+    },
+    {
+      "nombre": "Pasivo Financiero",
+      "2019": {
+        "valor": 8597,
+        "porcentaje_parte": 12.8,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 9446,
+        "porcentaje_parte": 14.5,
+        "var_porcentaje": 9.9
+      },
+      "2021": {
+        "valor": 9623,
+        "porcentaje_parte": 13.1,
+        "var_porcentaje": 1.9
+      },
+      "2022": {
+        "valor": 8862,
+        "porcentaje_parte": 12.6,
+        "var_porcentaje": -7.9
+      }
+    },
+    {
+      "nombre": "Otros Pasivos",
+      "2019": {
+        "valor": 2697,
+        "porcentaje_parte": 4.0,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 3498,
+        "porcentaje_parte": 5.4,
+        "var_porcentaje": 29.7
+      },
+      "2021": {
+        "valor": 4861,
+        "porcentaje_parte": 6.6,
+        "var_porcentaje": 39.0
+      },
+      "2022": {
+        "valor": 3996,
+        "porcentaje_parte": 5.7,
+        "var_porcentaje": -17.8
+      }
+    },
+    {
+      "nombre": "Pasivo No Corriente",
+      "2019": {
+        "valor": 11294,
+        "porcentaje_parte": 16.8,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 12944,
+        "porcentaje_parte": 19.8,
+        "var_porcentaje": 14.6
+      },
+      "2021": {
+        "valor": 14484,
+        "porcentaje_parte": 19.7,
+        "var_porcentaje": 11.9
+      },
+      "2022": {
+        "valor": 12858,
+        "porcentaje_parte": 18.2,
+        "var_porcentaje": -11.2
+      }
+    },
+    {
+      "nombre": "Pasivo Total",
+      "2019": {
+        "valor": 37509,
+        "porcentaje_parte": 55.8,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 33512,
+        "porcentaje_parte": 51.4,
+        "var_porcentaje": -10.7
+      },
+      "2021": {
+        "valor": 44042,
+        "porcentaje_parte": 60.0,
+        "var_porcentaje": 31.4
+      },
+      "2022": {
+        "valor": 44243,
+        "porcentaje_parte": 62.7,
+        "var_porcentaje": 0.5
+      }
+    },
+    {
+      "nombre": "Capital Social + Prima Colocación Acciones",
+      "2019": {
+        "valor": 2750,
+        "porcentaje_parte": 4.1,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 2750,
+        "porcentaje_parte": 4.2,
+        "var_porcentaje": 0.0
+      },
+      "2021": {
+        "valor": 2750,
+        "porcentaje_parte": 3.7,
+        "var_porcentaje": 0.0
+      },
+      "2022": {
+        "valor": 2750,
+        "porcentaje_parte": 3.9,
+        "var_porcentaje": 0.0
+      }
+    },
+    {
+      "nombre": "Reservas",
+      "2019": {
+        "valor": 3533,
+        "porcentaje_parte": 5.3,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 3533,
+        "porcentaje_parte": 5.4,
+        "var_porcentaje": 0.0
+      },
+      "2021": {
+        "valor": 5085,
+        "porcentaje_parte": 6.9,
+        "var_porcentaje": 43.9
+      },
+      "2022": {
+        "valor": 5394,
+        "porcentaje_parte": 7.6,
+        "var_porcentaje": 6.1
+      }
+    },
+    {
+      "nombre": "Otras Cuentas Patrimoniales (Revalorización)",
+      "2019": {
+        "valor": 21819,
+        "porcentaje_parte": 32.5,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 23591,
+        "porcentaje_parte": 36.2,
+        "var_porcentaje": 8.1
+      },
+      "2021": {
+        "valor": 25179,
+        "porcentaje_parte": 34.3,
+        "var_porcentaje": 6.7
+      },
+      "2022": {
+        "valor": 25179,
+        "porcentaje_parte": 35.7,
+        "var_porcentaje": 0.0
+      }
+    },
+    {
+      "nombre": "Resultados Acumulados",
+      "2019": {
+        "valor": 0,
+        "porcentaje_parte": 0.0,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 1552,
+        "porcentaje_parte": 2.4,
+        "var_porcentaje": "#DIV/0!"
+      },
+      "2021": {
+        "valor": 309,
+        "porcentaje_parte": 0.4,
+        "var_porcentaje": -80.1
+      },
+      "2022": {
+        "valor": -4534,
+        "porcentaje_parte": -6.4,
+        "var_porcentaje": -1567.3
+      }
+    },
+    {
+      "nombre": "Resultados del Ejercicio",
+      "2019": {
+        "valor": 1551,
+        "porcentaje_parte": 2.3,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 309,
+        "porcentaje_parte": 0.5,
+        "var_porcentaje": -80.1
+      },
+      "2021": {
+        "valor": -3954,
+        "porcentaje_parte": -5.4,
+        "var_porcentaje": -1379.6
+      },
+      "2022": {
+        "valor": -2447,
+        "porcentaje_parte": -3.5,
+        "var_porcentaje": -38.1
+      }
+    },
+    {
+      "nombre": "Patrimonio Total",
+      "2019": {
+        "valor": 29653,
+        "porcentaje_parte": 44.2,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 31735,
+        "porcentaje_parte": 48.6,
+        "var_porcentaje": 7.0
+      },
+      "2021": {
+        "valor": 29309,
+        "porcentaje_parte": 40.0,
+        "var_porcentaje": -7.3
+      },
+      "2022": {
+        "valor": 26342,
+        "porcentaje_parte": 37.3,
+        "var_porcentaje": -10.3
+      }
+    },
+    {
+      "nombre": "Pasivo + Patrimonio Total",
+      "2019": {
+        "valor": 67162,
+        "porcentaje_parte": 100.0,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 65247,
+        "porcentaje_parte": 100.0,
+        "var_porcentaje": -2.9
+      },
+      "2021": {
+        "valor": 73411,
+        "porcentaje_parte": 100.0,
+        "var_porcentaje": 12.5
+      },
+      "2022": {
+        "valor": 70585,
+        "porcentaje_parte": 100.0,
+        "var_porcentaje": -3.8
+      }
+    }
+  ]
+}

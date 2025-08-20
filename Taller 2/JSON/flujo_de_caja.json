@@ -1,0 +1,253 @@
+{
+    "FlujoDeCaja": {
+        "EBITDA": [
+            {
+                "nombre": "EBITDA",
+                "unidad": "COP Millones",
+                "2020": 3275,
+                "2021": -3090,
+                "2022": 237
+            }
+        ],
+        "Impuestos": [
+            {
+                "nombre": "Impuestos",
+                "unidad": "COP Millones",
+                "2020": 73,
+                "2021": 682,
+                "2022": -1
+            }
+        ],
+        "Flujo de Caja Bruto": [
+            {
+                "nombre": "Flujo de Caja Bruto",
+                "unidad": "COP Millones",
+                "2020": 3348,
+                "2021": -2408,
+                "2022": 237
+            }
+        ],
+        "Variaciones en Activos y Pasivos Corrientes": [
+            {
+                "nombre": "Var KTO",
+                "unidad": "COP Millones",
+                "2020": 523,
+                "2021": 2428,
+                "2022": 3483
+            },
+            {
+                "nombre": "Var C*C Clientes",
+                "unidad": "COP Millones",
+                "2020": 1588,
+                "2021": -1640,
+                "2022": 776
+            },
+            {
+                "nombre": "Var CxC Arriendo",
+                "unidad": "COP Millones",
+                "2020": 1628,
+                "2021": -479,
+                "2022": 752
+            },
+            {
+                "nombre": "Var Inventario",
+                "unidad": "COP Millones",
+                "2020": 1381,
+                "2021": -3039,
+                "2022": 1206
+            },
+            {
+                "nombre": "Var Anticipo Impuesto",
+                "unidad": "COP Millones",
+                "2020": 44,
+                "2021": -1596,
+                "2022": 528
+            },
+            {
+                "nombre": "Var Anticipos Operacionales",
+                "unidad": "COP Millones",
+                "2020": 2,
+                "2021": 29,
+                "2022": 110
+            },
+            {
+                "nombre": "Var C*P Comerciales",
+                "unidad": "COP Millones",
+                "2020": -3955,
+                "2021": 5393,
+                "2022": -83
+            },
+            {
+                "nombre": "Var Impuestos por Pagar",
+                "unidad": "COP Millones",
+                "2020": -336,
+                "2021": 1418,
+                "2022": -987
+            },
+            {
+                "nombre": "Var Obligaciones Laborales",
+                "unidad": "COP Millones",
+                "2020": 20,
+                "2021": 25,
+                "2022": 160
+            },
+            {
+                "nombre": "Var Anticipos Operacionales",
+                "unidad": "COP Millones",
+                "2020": 193,
+                "2021": 2317,
+                "2022": 3113
+            }
+        ],
+        "Flujo de Caja Operativo": [
+            {
+                "nombre": "Flujo de Caja Operativo",
+                "unidad": "COP Millones",
+                "2020": 3871,
+                "2021": 20,
+                "2022": 3720
+            }
+        ],
+        "Inversión": [
+            {
+                "nombre": "Inversión Capex",
+                "unidad": "COP Millones",
+                "2020": -1177,
+                "2021": -357,
+                "2022": 572
+            },
+            {
+                "nombre": "Inversión Intangibles y Diferidos",
+                "unidad": "COP Millones",
+                "2020": -92,
+                "2021": -32,
+                "2022": -113
+            }
+        ],
+        "Flujo de Caja Libre": [
+            {
+                "nombre": "Flujo de Caja Libre",
+                "unidad": "COP Millones",
+                "2020": 2602,
+                "2021": -369,
+                "2022": 4179
+            }
+        ],
+        "Financiamiento": [
+            {
+                "nombre": "Intereses",
+                "unidad": "COP Millones",
+                "2020": -1938,
+                "2021": -1427,
+                "2022": -2181
+            },
+            {
+                "nombre": "Var Deuda Financiera CP",
+                "unidad": "COP Millones",
+                "2020": 655,
+                "2021": 158,
+                "2022": -2626
+            },
+            {
+                "nombre": "Var Deuda Financiera LP",
+                "unidad": "COP Millones",
+                "2020": 849,
+                "2021": 177,
+                "2022": -761
+            }
+        ],
+        "Flujo de Caja Remanente": [
+            {
+                "nombre": "Flujo de Caja Remanente",
+                "unidad": "COP Millones",
+                "2020": 2168,
+                "2021": -1461,
+                "2022": -1389
+            }
+        ],
+        "Otros Ingresos / Egresos": [
+            {
+                "nombre": "Otros Ingresos / Egresos Recurrentes",
+                "unidad": "COP Millones",
+                "2020": -90,
+                "2021": -169,
+                "2022": -309
+            },
+            {
+                "nombre": "Otros Ingresos / Egresos No Recurrentes",
+                "unidad": "COP Millones",
+                "2020": -892,
+                "2021": 180,
+                "2022": -194
+            },
+            {
+                "nombre": "Otros Activos / Pasivos OP",
+                "unidad": "COP Millones",
+                "2020": 6,
+                "2021": 104,
+                "2022": 2899
+            },
+            {
+                "nombre": "Otros Activos / Pasivos LP",
+                "unidad": "COP Millones",
+                "2020": -415,
+                "2021": 563,
+                "2022": 813
+            }
+        ],
+        "Flujo de Caja para Socios": [
+            {
+                "nombre": "Flujo de Caja para Socios",
+                "unidad": "COP Millones",
+                "2020": 777,
+                "2021": -783,
+                "2022": 194
+            }
+        ],
+        "Vinculados Económicos CP": [
+            {
+                "nombre": "Vinculados Económicos CP",
+                "unidad": "COP Millones",
+                "2020": -2184,
+                "2021": -321,
+                "2022": -329
+            }
+        ],
+        "Inversión Patrimonial": [
+            {
+                "nombre": "Inversión Patrimonial",
+                "unidad": "COP Millones",
+                "2020": 1773,
+                "2021": 1588,
+                "2022": 580
+            }
+        ],
+        "Flujo de Caja del Período": [
+            {
+                "nombre": "Flujo de Caja del Período",
+                "unidad": "COP Millones",
+                "2020": 366,
+                "2021": 484,
+                "2022": -715
+            }
+        ],
+        "Caja Inicial": [
+            {
+                "nombre": "Caja Inicial",
+                "unidad": "COP Millones",
+                "2020": 263,
+                "2021": 629,
+                "2022": 1113
+            }
+        ],
+        "Caja Final": [
+            {
+                "nombre": "Caja Final",
+                "unidad": "COP Millones",
+                "2020": 629,
+                "2021": 1113,
+                "2022": 398
+            }
+        ]
+    }
+}

@@ -1,0 +1,349 @@
+{
+  "BalanceGeneral": [
+    {
+      "nombre": "Disponible e Inversiones Temporales",
+      "2019": {
+        "valor": 263,
+        "porcentaje_parte": 0.04,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 629,
+        "porcentaje_parte": 0.10,
+        "var_porcentaje": 139.2
+      },
+      "2021": {
+        "valor": 1113,
+        "porcentaje_parte": 0.015,
+        "var_porcentaje": 76.9
+      },
+      "2022": {
+        "valor": 398,
+        "porcentaje_parte": 0.006,
+        "var_porcentaje": -64.2
+      }
+    },
+    {
+      "nombre": "C*C Clientes",
+      "2019": {
+        "valor": 9403,
+        "porcentaje_parte": 0.14,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 7817,
+        "porcentaje_parte": 0.12,
+        "var_porcentaje": -16.9
+      },
+      "2021": {
+        "valor": 9457,
+        "porcentaje_parte": 0.129,
+        "var_porcentaje": 21.0
+      },
+      "2022": {
+        "valor": 10233,
+        "porcentaje_parte": 0.145,
+        "var_porcentaje": 8.2
+      }
+    },
+    {
+      "nombre": "C*C Arriendos",
+      "2019": {
+        "valor": 16186,
+        "porcentaje_parte": 0.24,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 14558,
+        "porcentaje_parte": 0.223,
+        "var_porcentaje": -10.1
+      },
+      "2021": {
+        "valor": 15037,
+        "porcentaje_parte": 0.205,
+        "var_porcentaje": 3.3
+      },
+      "2022": {
+        "valor": 14285,
+        "porcentaje_parte": 0.202,
+        "var_porcentaje": -5.0
+      }
+    },
+    {
+      "nombre": "Inventarios",
+      "2019": {
+        "valor": 4568,
+        "porcentaje_parte": 0.068,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 3187,
+        "porcentaje_parte": 0.049,
+        "var_porcentaje": -30.2
+      },
+      "2021": {
+        "valor": 6226,
+        "porcentaje_parte": 0.085,
+        "var_porcentaje": 95.4
+      },
+      "2022": {
+        "valor": 5020,
+        "porcentaje_parte": 0.071,
+        "var_porcentaje": -19.4
+      }
+    },
+    {
+      "nombre": "Anticipos Impuestos",
+      "2019": {
+        "valor": 1638,
+        "porcentaje_parte": 0.024,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 1594,
+        "porcentaje_parte": 0.024,
+        "var_porcentaje": -2.7
+      },
+      "2021": {
+        "valor": 3190,
+        "porcentaje_parte": 0.043,
+        "var_porcentaje": 100.1
+      },
+      "2022": {
+        "valor": 2662,
+        "porcentaje_parte": 0.038,
+        "var_porcentaje": -16.6
+      }
+    },
+    {
+      "nombre": "Anticipos y Avances Operacionales",
+      "2019": {
+        "valor": 31,
+        "porcentaje_parte": 0.004,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 29,
+        "porcentaje_parte": 0,
+        "var_porcentaje": -6.5
+      },
+      "2021": {
+        "valor": 0,
+        "porcentaje_parte": 0,
+        "var_porcentaje": -100.0
+      },
+      "2022": {
+        "valor": 110,
+        "porcentaje_parte": 0.002,
+        "var_porcentaje": "#DIV/0!"
+      }
+    },
+    {
+      "nombre": "Otros Activos",
+      "2019": {
+        "valor": 110,
+        "porcentaje_parte": 0.002,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 104,
+        "porcentaje_parte": 0.002,
+        "var_porcentaje": -5.5
+      },
+      "2021": {
+        "valor": 0,
+        "porcentaje_parte": 0,
+        "var_porcentaje": -100.0
+      },
+      "2022": {
+        "valor": 0,
+        "porcentaje_parte": 0,
+        "var_porcentaje": "#DIV/0!"
+      }
+    },
+    {
+      "nombre": "Activo Corriente",
+      "2019": {
+        "valor": 32199,
+        "porcentaje_parte": 0.479,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 27918,
+        "porcentaje_parte": 0.428,
+        "var_porcentaje": -13.3
+      },
+      "2021": {
+        "valor": 35023,
+        "porcentaje_parte": 0.477,
+        "var_porcentaje": 25.4
+      },
+      "2022": {
+        "valor": 32708,
+        "porcentaje_parte": 0.463,
+        "var_porcentaje": -6.6
+      }
+    },
+    {
+      "nombre": "Activo Fijo Neto",
+      "2019": {
+        "valor": 34524,
+        "porcentaje_parte": 0.514,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 35805,
+        "porcentaje_parte": 0.546,
+        "var_porcentaje": 3.1
+      },
+      "2021": {
+        "valor": 35864,
+        "porcentaje_parte": 0.489,
+        "var_porcentaje": 0.7
+      },
+      "2022": {
+        "valor": 35292,
+        "porcentaje_parte": 0.50,
+        "var_porcentaje": -1.8
+      }
+    },
+    {
+      "nombre": "Activo Fijo Bruto",
+      "2019": {
+        "valor": 40618,
+        "porcentaje_parte": 0.605,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 43275,
+        "porcentaje_parte": 0.663,
+        "var_porcentaje": 6.5
+      },
+      "2021": {
+        "valor": 35864,
+        "porcentaje_parte": 0.489,
+        "var_porcentaje": -17.1
+      },
+      "2022": {
+        "valor": 35292,
+        "porcentaje_parte": 0.50,
+        "var_porcentaje": -1.6
+      }
+    },
+    {
+      "nombre": "Depreciación",
+      "2019": {
+        "valor": 6094,
+        "porcentaje_parte": 0.091,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 7670,
+        "porcentaje_parte": 0.118,
+        "var_porcentaje": 25.9
+      },
+      "2021": {
+        "valor": 0,
+        "porcentaje_parte": 0,
+        "var_porcentaje": -100.0
+      },
+      "2022": {
+        "valor": 0,
+        "porcentaje_parte": 0,
+        "var_porcentaje": "#DIV/0!"
+      }
+    },
+    {
+      "nombre": "Intangible y Diferidos Neto",
+      "2019": {
+        "valor": 0,
+        "porcentaje_parte": 0,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 69,
+        "porcentaje_parte": 0.001,
+        "var_porcentaje": "#DIV/0!"
+      },
+      "2021": {
+        "valor": 69,
+        "porcentaje_parte": 0.001,
+        "var_porcentaje": 0.0
+      },
+      "2022": {
+        "valor": 182,
+        "porcentaje_parte": 0.003,
+        "var_porcentaje": 163.8
+      }
+    },
+    {
+      "nombre": "Otros Activos",
+      "2019": {
+        "valor": 439,
+        "porcentaje_parte": 0.007,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 1655,
+        "porcentaje_parte": 0.025,
+        "var_porcentaje": 277.0
+      },
+      "2021": {
+        "valor": 2455,
+        "porcentaje_parte": 0.033,
+        "var_porcentaje": 48.3
+      },
+      "2022": {
+        "valor": 2403,
+        "porcentaje_parte": 0.034,
+        "var_porcentaje": -2.1
+      }
+    },
+    {
+      "nombre": "Activo No Corriente",
+      "2019": {
+        "valor": 34963,
+        "porcentaje_parte": 0.521,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 37329,
+        "porcentaje_parte": 0.572,
+        "var_porcentaje": 6.8
+      },
+      "2021": {
+        "valor": 38388,
+        "porcentaje_parte": 0.523,
+        "var_porcentaje": 2.8
+      },
+      "2022": {
+        "valor": 37877,
+        "porcentaje_parte": 0.537,
+        "var_porcentaje": -1.3
+      }
+    },
+    {
+      "nombre": "Activo Total",
+      "2019": {
+        "valor": 67162,
+        "porcentaje_parte": 1.0,
+        "var_porcentaje": null
+      },
+      "2020": {
+        "valor": 65247,
+        "porcentaje_parte": 1.0,
+        "var_porcentaje": -2.9
+      },
+      "2021": {
+        "valor": 73411,
+        "porcentaje_parte": 1.0,
+        "var_porcentaje": 12.5
+      },
+      "2022": {
+        "valor": 70585,
+        "porcentaje_parte": 1.0,
+        "var_porcentaje": -3.8
+      }
+    }
+  ]
+}
